@@ -1,0 +1,5 @@
+pre-commit==3.8.0
+black==24.8.0
+ruff==0.6.8
+pylint==2.15.10
+pylint-odoo==8.0.22
