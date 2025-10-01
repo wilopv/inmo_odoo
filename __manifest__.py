@@ -21,6 +21,7 @@
         # 'security/ir.model.access.csv',
         "views/views.xml",
         "views/templates.xml",
+        "security/ir.model.access.csv",
     ],
     "license": "LGPL-3",
     # only loaded in demonstration mode
