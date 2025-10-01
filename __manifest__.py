@@ -18,9 +18,7 @@
     "depends": ["base"],
     # always loaded
     "data": [
-        # 'security/ir.model.access.csv',
-        "views/views.xml",
-        "views/templates.xml",
+        "views/inmueble_views.xml",
         "security/ir.model.access.csv",
     ],
     "license": "LGPL-3",

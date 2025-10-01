@@ -1,0 +1,156 @@
+﻿<odoo>
+    <data>
+
+        <!-- Vista de formulario -->
+        <record id="view_inmueble_form" model="ir.ui.view">
+            <field name="name">inmo.inmueble.form</field>
+            <field name="model">inmo.inmueble</field>
+            <field name="arch" type="xml">
+                <form string="Inmueble">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="nombre"/>
+                                <field name="referencia_catastral"/>
+                                <field name="estado"/>
+                                <field name="tipo_inmueble"/>
+                            </group>
+                            <group>
+                                <field name="calle"/>
+                                <field name="calle2"/>
+                                <field name="codigo_postal"/>
+                                <field name="ciudad"/>
+                                <field name="provincia"/>
+                                <field name="id_pais"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="superficie_construida"/>
+                            </group>
+                            <group>
+                                <field name="habitaciones"/>
+                                <field name="banos"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista de lista -->
+        <record id="view_inmueble_tree" model="ir.ui.view">
+            <field name="name">inmo.inmueble.tree</field>
+            <field name="model">inmo.inmueble</field>
+            <field name="arch" type="xml">
+                <tree string="Inmuebles">
+                    <field name="nombre"/>
+                    <field name="estado"/>
+                    <field name="tipo_inmueble"/>
+                    <field name="ciudad"/>
+                    <field name="provincia"/>
+                    <field name="superficie_construida"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista kanban -->
+        <record id="view_inmueble_kanban" model="ir.ui.view">
+            <field name="name">inmo.inmueble.kanban</field>
+            <field name="model">inmo.inmueble</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="estado" class="o_kanban_small_column">
+                    <field name="nombre"/>
+                    <field name="estado"/>
+                    <field name="tipo_inmueble"/>
+                    <field name="ciudad"/>
+                    <field name="provincia"/>
+                    <field name="superficie_construida"/>
+
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card">
+                                <div class="o_kanban_record_top">
+                                    <div class="o_kanban_record_title">
+                                        <field name="nombre"/>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_record_subtitle">
+                                    <field name="tipo_inmueble"/> · <field name="estado"/>
+                                </div>
+
+                                <div class="o_kanban_record_body d-flex justify-content-between">
+                                    <div class="o_kanban_primary_left">
+                                        <div class="o_text_overflow">
+                                            <field name="calle"/>
+                                            <t t-if="record.ciudad.raw_value">
+                                                , <field name="ciudad"/>
+                                            </t>
+                                            <t t-if="record.provincia.raw_value">
+                                                , <field name="provincia"/>
+                                            </t>
+                                        </div>
+                                        <div class="o_text_overflow">
+                                            <span>Ref. catastral: </span><field name="referencia_catastral"/>
+                                        </div>
+                                    </div>
+                                    <div class="o_kanban_primary_right text-right">
+                                        <div t-if="record.superficie_construida.raw_value">
+                                            <span class="o_stat_value"><field name="superficie_construida"/></span>
+                                            <span class="o_stat_text">m²</span>
+                                        </div>
+                                        <div class="o_text_overflow">
+                                            <span><field name="habitaciones"/> hab.</span>
+                                            <t t-if="record.banos.raw_value">
+                                                — <field name="banos"/> baños
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <!-- Vista de búsqueda -->
+        <record id="view_inmueble_search" model="ir.ui.view">
+            <field name="name">inmo.inmueble.search</field>
+            <field name="model">inmo.inmueble</field>
+            <field name="arch" type="xml">
+                <search string="Buscar Inmuebles">
+                    <field name="nombre"/>
+                    <field name="referencia_catastral"/>
+                    <filter string="Disponibles" name="available" domain="[('estado', '=', 'disponible')]"/>
+                    <filter string="Reservados" name="reserved" domain="[('estado', '=', 'reservado')]"/>
+                    <filter string="Vendidos" name="sold" domain="[('estado', '=', 'vendido')]"/>
+                    <filter string="Alquilados" name="rented" domain="[('estado', '=', 'alquilado')]"/>
+                    <group expand="0" string="Agrupar por">
+                        <filter string="Tipo de inmueble" name="group_tipo" context="{'group_by': 'tipo_inmueble'}"/>
+                        <filter string="Estado" name="group_estado" context="{'group_by': 'estado'}"/>
+                        <filter string="Provincia" name="group_provincia" context="{'group_by': 'provincia'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Acción que abre las vistas -->
+        <record id="action_inmueble" model="ir.actions.act_window">
+            <field name="name">Inmuebles</field>
+            <field name="res_model">inmo.inmueble</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_id" ref="view_inmueble_tree"/>
+        </record>
+
+        <!-- Menú -->
+        <menuitem id="menu_inmo_root" name="Inmuebles"/>
+
+        <menuitem id="menu_inmo_inmueble"
+                  name="Inmuebles"
+                  parent="menu_inmo_root"
+                  action="action_inmueble"/>
+
+    </data>
+</odoo>
