@@ -18,7 +18,7 @@
     "depends": ["base", "calendar"],
     # always loaded
     "data": [
-        "data/event_type_visita.xml",
+        "data/event_type_visita_inmobiliaria.xml",
         "views/inmueble_wizard_views.xml",
         "views/visita_inmueble_views.xml",
         "views/inmueble_views.xml",
