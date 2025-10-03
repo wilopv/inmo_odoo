@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from odoo import fields, models
 
 
@@ -12,8 +14,8 @@ class Inmueble(models.Model):
     _name = "inmo.inmueble"
     _description = "Inmueble"
 
-    nombre = fields.Char(string="Nombre comercial", required=True)
-    referencia_catastral = fields.Char(string="Referencia catastral", required=False)
+    nombre = fields.Char(string="Nombre comercial")
+    referencia_catastral = fields.Char(string="Referencia catastral")
     estado = fields.Selection(
         selection=[
             ("disponible", "Disponible"),
@@ -33,7 +35,6 @@ class Inmueble(models.Model):
             ("terreno", "Terreno"),
         ],
         string="Tipo de inmueble",
-        required=True,
     )
     calle = fields.Char(string="Calle")
     calle2 = fields.Char(string="Complemento dirección")
