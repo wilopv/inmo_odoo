@@ -1,1 +1,1 @@
-from . import inmueble
+from . import catastro_config, catastro_service, inmueble
