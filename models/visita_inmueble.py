@@ -1,4 +1,5 @@
 from odoo import _, api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class VisitaInmueble(models.Model):
@@ -103,3 +104,12 @@ class VisitaInmueble(models.Model):
         ):
             defaults["name"] = _("Visita inmobiliaria")
         return defaults
+
+    @api.constrains("cliente_id", "inmueble_id")
+    def _check_visita_pairs(self):
+        """Exige que cliente e inmueble se informen juntos en las visitas."""
+        for record in self:
+            if bool(record.cliente_id) != bool(record.inmueble_id):
+                raise ValidationError(
+                    _("Debe indicar cliente e inmueble a la vez para una visita.")
+                )
