@@ -97,7 +97,7 @@
 
                                 <div class="o_kanban_record_body d-flex justify-content-between">
                                     <div class="o_kanban_primary_left">
-                                        <div class="o_text_overflow">
+                                        <div class="o_text_break">
                                             <field name="calle"/>
                                             <t t-if="record.ciudad.raw_value">
                                                 , <field name="ciudad"/>
@@ -106,7 +106,7 @@
                                                 , <field name="provincia"/>
                                             </t>
                                         </div>
-                                        <div class="o_text_overflow">
+                                        <div class="o_text_break">
                                             <span>Ref. catastral: </span><field name="referencia_catastral"/>
                                         </div>
                                     </div>
@@ -115,7 +115,7 @@
                                             <span class="o_stat_value"><field name="superficie_construida"/></span>
                                             <span class="o_stat_text">m²</span>
                                         </div>
-                                        <div class="o_text_overflow">
+                                        <div class="o_text_break">
                                             <span><field name="habitaciones"/> hab.</span>
                                             <t t-if="record.banos.raw_value">
                                                 – <field name="banos"/> baños
