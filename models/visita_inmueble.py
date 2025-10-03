@@ -88,3 +88,18 @@ class VisitaInmueble(models.Model):
                 ).write(updated_vals)
             return True
         return super().write(vals)
+
+    @api.model
+    def default_get(self, fields_list):
+        """Autorellena un asunto genérico en el evento de calendario
+        cuando la visita se abre desde un inmueble/cliente."""
+
+        defaults = super().default_get(fields_list)
+        ctx = self.env.context
+        if (
+            "name" in fields_list
+            and not defaults.get("name")
+            and (ctx.get("default_inmueble_id") or ctx.get("default_cliente_id"))
+        ):
+            defaults["name"] = _("Visita inmobiliaria")
+        return defaults
