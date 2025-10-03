@@ -7,6 +7,14 @@
             <field name="model">inmo.inmueble</field>
             <field name="arch" type="xml">
                 <form string="Inmueble">
+                    <header>
+                        <button name="%(action_inmueble_catastro_wizard)d"
+                                type="action"
+                                string="Rellenar datos con referencia de Catastro"
+                                class="oe_highlight"
+                                context="{'default_inmueble_id': active_id, 'default_referencia_catastral': referencia_catastral}"/>
+
+                    </header>
                     <sheet>
                         <group>
                             <group>
@@ -102,7 +110,7 @@
                                         <div class="o_text_overflow">
                                             <span><field name="habitaciones"/> hab.</span>
                                             <t t-if="record.banos.raw_value">
-                                                — <field name="banos"/> baños
+                                                – <field name="banos"/> baños
                                             </t>
                                         </div>
                                     </div>
@@ -113,7 +121,6 @@
                 </kanban>
             </field>
         </record>
-
 
         <!-- Vista de búsqueda -->
         <record id="view_inmueble_search" model="ir.ui.view">

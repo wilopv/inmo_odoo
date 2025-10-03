@@ -18,6 +18,7 @@
     "depends": ["base"],
     # always loaded
     "data": [
+        "views/inmueble_wizard_views.xml",
         "views/inmueble_views.xml",
         "security/ir.model.access.csv",
     ],
