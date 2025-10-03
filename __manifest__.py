@@ -21,7 +21,7 @@
         "data/event_type_visita.xml",
         "views/inmueble_wizard_views.xml",
         "views/inmueble_views.xml",
-        "views/visita_cliente_views.xml",
+        "views/visita_inmueble_views.xml",
         "security/ir.model.access.csv",
     ],
     "license": "LGPL-3",
