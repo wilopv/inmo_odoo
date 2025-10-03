@@ -12,6 +12,7 @@ class Inmueble(models.Model):
     """
 
     _name = "inmo.inmueble"
+    _rec_name = "nombre"
     _description = "Inmueble"
 
     nombre = fields.Char(string="Nombre comercial")
