@@ -27,5 +27,15 @@
                 </xpath>
             </field>
         </record>
+
+        <!-- Acción para concertar visita desde boton en inmuebles -->
+        <record id="action_inmo_schedule_visit" model="ir.actions.act_window">
+            <field name="name">Concertar visita</field>
+            <field name="res_model">calendar.event</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="calendar.view_calendar_event_form"/>
+            <field name="target">new</field>
+        </record>
+
     </data>
 </odoo>

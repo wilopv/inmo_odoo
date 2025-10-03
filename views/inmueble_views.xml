@@ -13,7 +13,10 @@
                                 string="Rellenar datos con referencia de Catastro"
                                 class="oe_highlight"
                                 context="{'default_inmueble_id': active_id, 'default_referencia_catastral': referencia_catastral}"/>
-
+                        <button name="%(action_inmo_schedule_visit)d"
+                                type="action"
+                                string="Concertar visita"
+                                context="{'default_inmueble_id': active_id, 'default_start': False, 'default_stop': False}"/>
                     </header>
                     <sheet>
                         <group>
@@ -58,6 +61,11 @@
                     <field name="ciudad"/>
                     <field name="provincia"/>
                     <field name="superficie_construida"/>
+                    <button name="%(action_inmo_schedule_visit)d"
+                            type="action"
+                            string="Concertar visita"
+                            icon="fa-calendar"
+                            context="{'default_inmueble_id': id, 'default_start': False, 'default_stop': False}"/>
                 </tree>
             </field>
         </record>
@@ -114,6 +122,14 @@
                                             </t>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="o_kanban_bottom_right">
+                                    <button type="action"
+                                            name="%(action_inmo_schedule_visit)d"
+                                            class="btn btn-link o_kanban_button"
+                                            t-att-context="{'default_inmueble_id': record.id.raw_value, 'default_start': False, 'default_stop': False}">
+                                        Concertar visita
+                                    </button>
                                 </div>
                             </div>
                         </t>
