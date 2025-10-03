@@ -15,7 +15,7 @@
     "category": "Bienes raíces",
     "version": "0.1",
     # any module necessary for this one to work correctly
-    "depends": ["base"],
+    "depends": ["base", "calendar"],
     # always loaded
     "data": [
         "views/inmueble_wizard_views.xml",
