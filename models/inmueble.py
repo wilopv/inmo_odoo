@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class Inmueble(models.Model):
@@ -59,3 +59,14 @@ class Inmueble(models.Model):
         inverse_name="inmueble_id",
         string="Fotos",
     )
+    miniatura_kanban = fields.Image(
+        string="Miniatura kanban",
+        compute="_compute_miniatura_kanban",
+        store=False,
+    )
+
+    @api.depends("fotos_ids.foto")
+    def _compute_miniatura_kanban(self):
+        for inmueble in self:
+            foto = inmueble.fotos_ids[:1].foto
+            inmueble.miniatura_kanban = foto or False
