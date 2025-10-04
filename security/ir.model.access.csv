@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_inmo_inmueble_user,inmo.inmueble,model_inmo_inmueble,base.group_user,1,1,1,1
 access_inmueble_catastro_wizard_user,inmo.inmueble.catastro.wizard,model_inmo_inmueble_catastro_wizard,base.group_user,1,1,1,1
+access_inmo_foto_inmueble_user,inmo.inmueble.foto,model_inmo_inmueble_foto,base.group_user,1,1,1,1

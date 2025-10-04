@@ -1,1 +1,7 @@
-from . import catastro_config, catastro_service, inmueble, visita_inmueble
+from . import (
+    catastro_config,
+    catastro_service,
+    foto_inmueble,
+    inmueble,
+    visita_inmueble,
+)

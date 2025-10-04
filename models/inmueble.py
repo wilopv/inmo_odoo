@@ -54,3 +54,8 @@ class Inmueble(models.Model):
     superficie_construida = fields.Float(string="Superficie construida (m2)")
     habitaciones = fields.Integer(string="Habitaciones")
     banos = fields.Integer(string="Baños")
+    fotos_ids = fields.One2many(
+        comodel_name="inmo.inmueble.foto",
+        inverse_name="inmueble_id",
+        string="Fotos",
+    )
