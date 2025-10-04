@@ -92,7 +92,7 @@
                                     </div>
                                 </div>
                                 <div class="o_kanban_record_subtitle">
-                                    <field name="tipo_inmueble"/> · <field name="estado"/>
+                                    <field name="tipo_inmueble"/> Estado <field name="estado"/>
                                 </div>
 
                                 <div class="o_kanban_record_body d-flex justify-content-between">
@@ -118,7 +118,7 @@
                                         <div class="o_text_break">
                                             <span><field name="habitaciones"/> hab.</span>
                                             <t t-if="record.banos.raw_value">
-                                                – <field name="banos"/> baños
+                                                - <field name="banos"/> baños
                                             </t>
                                         </div>
                                     </div>

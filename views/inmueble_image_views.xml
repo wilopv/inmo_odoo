@@ -1,0 +1,55 @@
+<odoo>
+    <data>
+        <record id="view_inmueble_fotos_tree" model="ir.ui.view">
+            <field name="name">inmo.inmueble.foto.tree</field>
+            <field name="model">inmo.inmueble.foto</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="descripcion"/>
+                    <field name="foto" widget="image"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_inmueble_fotos_form" model="ir.ui.view">
+            <field name="name">inmo.inmueble.foto.form</field>
+            <field name="model">inmo.inmueble.foto</field>
+            <field name="arch" type="xml">
+                <form string="Foto">
+                    <sheet>
+                        <group>
+                            <field name="descripcion"/>
+                            <field name="foto" widget="image_1920"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_inmueble_form_images" model="ir.ui.view">
+            <field name="name">inmo.inmueble.form.images</field>
+            <field name="model">inmo.inmueble</field>
+            <field name="inherit_id" ref="inmo_odoo.view_inmueble_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet/group[last()]" position="after">
+                    <group string="Fotos">
+                        <field name="fotos_ids" context="{'default_inmueble_id': active_id}" widget="one2many_list">
+                            <tree string="Fotos" editable="bottom">
+                                <field name="descripcion"/>
+                                <field name="foto" widget="image"/>
+                            </tree>
+                            <form string="Foto">
+                                <sheet>
+                                    <group>
+                                        <field name="descripcion"/>
+                                        <field name="foto" widget="image_1920"/>
+                                    </group>
+                                </sheet>
+                            </form>
+                        </field>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
