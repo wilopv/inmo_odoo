@@ -1,0 +1,66 @@
+<odoo>
+    <data noupdate="1">
+    <record id="inmo_inmueble_demo_6" model="inmo.inmueble">
+        <field name="nombre">local en CL ANTONIO CABEZON, Nº 12 Esc. 1 Pl. 00 Pu. 01</field>
+        <field name="referencia_catastral">8124906VK6882S0001QK</field>
+        <field name="estado">disponible</field>
+        <field name="tipo_inmueble">local</field>
+        <field name="calle">CL ANTONIO CABEZON</field>
+        <field name="calle2">Nº 12 Esc. 1 Pl. 00 Pu. 01</field>
+        <field name="codigo_postal">28806</field>
+        <field name="ciudad">ALCALA DE HENARES</field>
+        <field name="provincia" ref="base.state_es_m"/>
+        <field name="id_pais" ref="base.es"/>
+        <field name="superficie_construida">26.0</field>
+        <field name="habitaciones" eval="False"/>
+        <field name="banos" eval="False"/>
+
+    </record>
+    <record id="inmo_inmueble_demo_7" model="inmo.inmueble">
+        <field name="nombre">piso en CL ANTONIO CABEZON, Nº 12 Esc. 1 Pl. 01 Pu. -B</field>
+        <field name="referencia_catastral">8124906VK6882S0007UQ</field>
+        <field name="estado">disponible</field>
+        <field name="tipo_inmueble">piso</field>
+        <field name="calle">CL ANTONIO CABEZON</field>
+        <field name="calle2">Nº 12 Esc. 1 Pl. 01 Pu. -B</field>
+        <field name="codigo_postal">28806</field>
+        <field name="ciudad">ALCALA DE HENARES</field>
+        <field name="provincia" ref="base.state_es_m"/>
+        <field name="id_pais" ref="base.es"/>
+        <field name="superficie_construida">89.0</field>
+        <field name="habitaciones" eval="False"/>
+        <field name="banos" eval="False"/>
+
+    </record>
+    <record id="inmo_inmueble_demo_8" model="inmo.inmueble">
+        <field name="nombre">terreno en CL CHORRILLO, Nº 3 Esc. S Pl. UE Pu. LO</field>
+        <field name="referencia_catastral">8320307VK6882S0001LK</field>
+        <field name="estado">disponible</field>
+        <field name="tipo_inmueble">terreno</field>
+        <field name="calle">CL CHORRILLO</field>
+        <field name="calle2">Nº 3 Esc. S Pl. UE Pu. LO</field>
+        <field name="codigo_postal">28806</field>
+        <field name="ciudad">ALCALA DE HENARES</field>
+        <field name="provincia" ref="base.state_es_m"/>
+        <field name="id_pais" ref="base.es"/>
+        <field name="superficie_construida" eval="False"/>
+        <field name="habitaciones" eval="False"/>
+        <field name="banos" eval="False"/>
+    </record>
+    <record id="inmo_inmueble_demo_9" model="inmo.inmueble">
+        <field name="nombre">piso en RD PADRE SOLER, Nº 11 Esc. T Pl. OD Pu. OS</field>
+        <field name="referencia_catastral">8320313VK6882S0001MK</field>
+        <field name="estado">alquilado</field>
+        <field name="tipo_inmueble">piso</field>
+        <field name="calle">RD PADRE SOLER</field>
+        <field name="calle2">Nº 11 Esc. T Pl. OD Pu. OS</field>
+        <field name="codigo_postal">28806</field>
+        <field name="ciudad">ALCALA DE HENARES</field>
+        <field name="provincia" ref="base.state_es_m"/>
+        <field name="id_pais" ref="base.es"/>
+        <field name="superficie_construida">223.0</field>
+        <field name="habitaciones" eval="False"/>
+        <field name="banos" eval="False"/>
+    </record>
+    </data>
+</odoo>

@@ -23,7 +23,7 @@
     ],
     "license": "LGPL-3",
     "demo": [
-        "demo/demo.xml",
+        "demo/inmueble_demo.xml",
     ],
     "installable": True,
     "application": True,
