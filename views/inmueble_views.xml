@@ -71,11 +71,15 @@
         </record>
 
         <!-- Vista de kanban -->
-                <record id="view_inmueble_kanban" model="ir.ui.view">
+        <record id="view_inmueble_kanban" model="ir.ui.view">
             <field name="name">inmo.inmueble.kanban</field>
             <field name="model">inmo.inmueble</field>
             <field name="arch" type="xml">
-                <kanban default_group_by="estado" class="o_kanban_small_column">
+            <!-- views/inmueble_views.xml -->
+            <kanban default_group_by="estado"
+                    quick_create="false"
+                    options="{'quick_create': False, 'group_create': False, 'default_open': 'record'}">
+
                     <field name="nombre"/>
                     <field name="miniatura_kanban"/>
                     <field name="estado"/>
@@ -88,7 +92,7 @@
 
                     <templates>
                         <t t-name="kanban-box">
-                            <div class="o_kanban_record o_kanban_has_image o_kanban_card_small">
+                            <div class="o_kanban_record o_kanban_has_image o_kanban_card_small oe_kanban_global_click">
                                 <div class="o_kanban_image o_kanban_image_fill" style="width: 100%;">
                                     <img t-if="record.miniatura_kanban.raw_value"
                                          t-att-src="kanban_image('inmo.inmueble', 'miniatura_kanban', record.id.raw_value)"
